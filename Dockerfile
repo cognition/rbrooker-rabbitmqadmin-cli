@@ -5,7 +5,7 @@ MAINTAINER Ramon Brooker <rbrooker@aetherealmind.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 
-ADD  http://wtlramon1.wtldev.net:15672/cli/rabbitmqadmin   /usr/bin/rabbitmqadmin
+ADD  rabbitmqadmin   /usr/bin/rabbitmqadmin
 ADD  bashrc  /root/.bashrc
 
 RUN chmod 744 /usr/bin/rabbitmqadmin; mkdir /certs
@@ -15,7 +15,8 @@ RUN apt-get update; apt-get install -y python bash-completion; apt-get -y autore
 RUN rabbitmqadmin --bash-completion >> /etc/bash_completion.d/rabbitmqadmin.bash-completion
 
 
-
+ADD set-time.sh  /set-time.sh
+RUN  /set-time.sh
 
 VOLUME ["/configs"]
 
