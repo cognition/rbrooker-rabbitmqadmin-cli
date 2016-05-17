@@ -18,7 +18,7 @@ RUN rabbitmqadmin --bash-completion >> /etc/bash_completion.d/rabbitmqadmin.bash
 ADD set-time.sh  /set-time.sh
 RUN  /set-time.sh
 
-ADD rabbitmqadmin.conf /configs
+#ADD rabbitmqadmin.conf /configs
 RUN ln -s /configs/rabbitmqadmin.conf /.rabbitmqadmin.conf
 
 VOLUME ["/configs"]
